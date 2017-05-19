@@ -10,6 +10,9 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, strong) FMSegmentControl *segmentControl;
+@property (nonatomic, strong) SwipeView *swipeView;
+@property (nonatomic, strong) NSMutableArray *ViewArr;
 
 @end
 
