@@ -45,7 +45,8 @@
 
 - (void)combineView
 {
-    for (NSInteger i = 0; i < 3; i++) {
+    [self.ViewArr addObject:self.cascadeView];
+    for (NSInteger i = 1; i < 3; i++) {
         UIView *view = [[UIView alloc] init];
         view.tag = 100+i;
         view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.f green:arc4random_uniform(255)/255.f blue:arc4random_uniform(255)/255.f alpha:1];
@@ -98,6 +99,15 @@
         _ViewArr = [[NSMutableArray alloc] init];
     }
     return _ViewArr;
+}
+
+- (FMCascadeView *)cascadeView
+{
+    if (!_cascadeView) {
+        _cascadeView = [[FMCascadeView alloc] initWithFrame:CGRectZero];
+        _cascadeView.backgroundColor = [UIColor yellowColor];
+    }
+    return _cascadeView;
 }
 
 - (void)didReceiveMemoryWarning {

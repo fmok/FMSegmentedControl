@@ -31,7 +31,7 @@
 #pragma mark - SwipeViewDelegate
 - (CGSize)swipeViewItemSize:(SwipeView *)swipeView
 {
-    return CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-64.f);
 }
 
 - (void)swipeViewDidScroll:(SwipeView *)swipeView

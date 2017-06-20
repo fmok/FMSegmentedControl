@@ -10,4 +10,7 @@
 
 @interface FMCascadeView : UIView
 
+@property (nonatomic, strong) UITableView *leftTableView;
+@property (nonatomic, strong) UITableView *rightTableView;
+
 @end

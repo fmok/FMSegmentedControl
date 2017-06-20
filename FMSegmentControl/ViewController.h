@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMCascadeView.h"
 
 @interface ViewController : UIViewController
 
 @property (nonatomic, strong) FMSegmentControl *segmentControl;
 @property (nonatomic, strong) SwipeView *swipeView;
 @property (nonatomic, strong) NSMutableArray *ViewArr;
+@property (nonatomic, strong) FMCascadeView *cascadeView;
 
 @end
 

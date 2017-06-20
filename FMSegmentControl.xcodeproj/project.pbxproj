@@ -26,6 +26,8 @@
 		841EC8BD1ECEC5F6005AA3BA /* ViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 841EC8BC1ECEC5F6005AA3BA /* ViewControl.m */; };
 		841EC8C01ECED830005AA3BA /* FMSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 841EC8BF1ECED830005AA3BA /* FMSegmentControl.m */; };
 		8425AA7B1EF8C01B00732B18 /* FMCascadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425AA7A1EF8C01B00732B18 /* FMCascadeView.m */; };
+		8425AA7E1EF8CA1400732B18 /* LeftControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425AA7D1EF8CA1400732B18 /* LeftControl.m */; };
+		8425AA811EF8CDB600732B18 /* RightControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425AA801EF8CDB600732B18 /* RightControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,10 @@
 		841EC8BF1ECED830005AA3BA /* FMSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSegmentControl.m; sourceTree = "<group>"; };
 		8425AA791EF8C01B00732B18 /* FMCascadeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCascadeView.h; sourceTree = "<group>"; };
 		8425AA7A1EF8C01B00732B18 /* FMCascadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCascadeView.m; sourceTree = "<group>"; };
+		8425AA7C1EF8CA1400732B18 /* LeftControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftControl.h; sourceTree = "<group>"; };
+		8425AA7D1EF8CA1400732B18 /* LeftControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftControl.m; sourceTree = "<group>"; };
+		8425AA7F1EF8CDB600732B18 /* RightControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightControl.h; sourceTree = "<group>"; };
+		8425AA801EF8CDB600732B18 /* RightControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +198,10 @@
 			children = (
 				8425AA791EF8C01B00732B18 /* FMCascadeView.h */,
 				8425AA7A1EF8C01B00732B18 /* FMCascadeView.m */,
+				8425AA7C1EF8CA1400732B18 /* LeftControl.h */,
+				8425AA7D1EF8CA1400732B18 /* LeftControl.m */,
+				8425AA7F1EF8CDB600732B18 /* RightControl.h */,
+				8425AA801EF8CDB600732B18 /* RightControl.m */,
 			);
 			path = FMCascadeView;
 			sourceTree = "<group>";
@@ -276,6 +286,7 @@
 				841EC8771ECE9025005AA3BA /* main.m in Sources */,
 				841EC8B91ECEC460005AA3BA /* View+MASAdditions.m in Sources */,
 				841EC8B11ECEC460005AA3BA /* MASCompositeConstraint.m in Sources */,
+				8425AA7E1EF8CA1400732B18 /* LeftControl.m in Sources */,
 				841EC8B51ECEC460005AA3BA /* MASViewAttribute.m in Sources */,
 				841EC8B31ECEC460005AA3BA /* MASConstraintMaker.m in Sources */,
 				841EC8B71ECEC460005AA3BA /* NSArray+MASAdditions.m in Sources */,
@@ -283,6 +294,7 @@
 				8425AA7B1EF8C01B00732B18 /* FMCascadeView.m in Sources */,
 				841EC8BD1ECEC5F6005AA3BA /* ViewControl.m in Sources */,
 				841EC8B41ECEC460005AA3BA /* MASLayoutConstraint.m in Sources */,
+				8425AA811EF8CDB600732B18 /* RightControl.m in Sources */,
 				841EC8981ECEC41B005AA3BA /* SwipeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
