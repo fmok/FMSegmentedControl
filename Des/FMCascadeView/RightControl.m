@@ -8,7 +8,20 @@
 
 #import "RightControl.h"
 
+NSString *const RightCellIdentifier = @"RightCell";
+
 @implementation RightControl
+
+#pragma mark - Public methods
+- (void)registerCell
+{
+    [self.cascadeView.rightTableView registerClass:[RightCell class] forCellReuseIdentifier:RightCellIdentifier];
+}
+
+- (void)loadData
+{
+    
+}
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -39,7 +52,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    RightCell *cell = [tableView dequeueReusableCellWithIdentifier:RightCellIdentifier forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"*** %@ ***", @(indexPath.row)];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

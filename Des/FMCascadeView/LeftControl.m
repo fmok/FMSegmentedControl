@@ -8,8 +8,20 @@
 
 #import "LeftControl.h"
 
+NSString *const LeftCellIdentifier = @"LeftCell";
+
 @implementation LeftControl
 
+#pragma mark - Public methods
+- (void)registerCell
+{
+    [self.cascadeView.leftTableView registerClass:[LeftCell class] forCellReuseIdentifier:LeftCellIdentifier];
+}
+
+- (void)loadData
+{
+    
+}
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -42,7 +54,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    LeftCell *cell = [tableView dequeueReusableCellWithIdentifier:LeftCellIdentifier forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"* sec %@ *", @(indexPath.row)];
     return cell;
 }

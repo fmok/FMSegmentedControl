@@ -25,6 +25,7 @@
     [self combineView];
     [self customNav];
     [self customSwipe];
+    [self.cascadeView loadData];
 }
 
 #pragma mark - Private methods

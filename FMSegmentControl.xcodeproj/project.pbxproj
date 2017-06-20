@@ -28,6 +28,8 @@
 		8425AA7B1EF8C01B00732B18 /* FMCascadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425AA7A1EF8C01B00732B18 /* FMCascadeView.m */; };
 		8425AA7E1EF8CA1400732B18 /* LeftControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425AA7D1EF8CA1400732B18 /* LeftControl.m */; };
 		8425AA811EF8CDB600732B18 /* RightControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425AA801EF8CDB600732B18 /* RightControl.m */; };
+		8425AA841EF8D23800732B18 /* LeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425AA831EF8D23800732B18 /* LeftCell.m */; };
+		8425AA871EF8D27C00732B18 /* RightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425AA861EF8D27C00732B18 /* RightCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,10 @@
 		8425AA7D1EF8CA1400732B18 /* LeftControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftControl.m; sourceTree = "<group>"; };
 		8425AA7F1EF8CDB600732B18 /* RightControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightControl.h; sourceTree = "<group>"; };
 		8425AA801EF8CDB600732B18 /* RightControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightControl.m; sourceTree = "<group>"; };
+		8425AA821EF8D23800732B18 /* LeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftCell.h; sourceTree = "<group>"; };
+		8425AA831EF8D23800732B18 /* LeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftCell.m; sourceTree = "<group>"; };
+		8425AA851EF8D27C00732B18 /* RightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightCell.h; sourceTree = "<group>"; };
+		8425AA861EF8D27C00732B18 /* RightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,10 @@
 				8425AA7D1EF8CA1400732B18 /* LeftControl.m */,
 				8425AA7F1EF8CDB600732B18 /* RightControl.h */,
 				8425AA801EF8CDB600732B18 /* RightControl.m */,
+				8425AA821EF8D23800732B18 /* LeftCell.h */,
+				8425AA831EF8D23800732B18 /* LeftCell.m */,
+				8425AA851EF8D27C00732B18 /* RightCell.h */,
+				8425AA861EF8D27C00732B18 /* RightCell.m */,
 			);
 			path = FMCascadeView;
 			sourceTree = "<group>";
@@ -280,11 +290,13 @@
 			files = (
 				841EC8B81ECEC460005AA3BA /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				841EC87D1ECE9025005AA3BA /* ViewController.m in Sources */,
+				8425AA841EF8D23800732B18 /* LeftCell.m in Sources */,
 				841EC8B61ECEC460005AA3BA /* MASViewConstraint.m in Sources */,
 				841EC87A1ECE9025005AA3BA /* AppDelegate.m in Sources */,
 				841EC8C01ECED830005AA3BA /* FMSegmentControl.m in Sources */,
 				841EC8771ECE9025005AA3BA /* main.m in Sources */,
 				841EC8B91ECEC460005AA3BA /* View+MASAdditions.m in Sources */,
+				8425AA871EF8D27C00732B18 /* RightCell.m in Sources */,
 				841EC8B11ECEC460005AA3BA /* MASCompositeConstraint.m in Sources */,
 				8425AA7E1EF8CA1400732B18 /* LeftControl.m in Sources */,
 				841EC8B51ECEC460005AA3BA /* MASViewAttribute.m in Sources */,

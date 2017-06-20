@@ -25,6 +25,8 @@
     if (self) {
         [self addSubview:self.leftTableView];
         [self addSubview:self.rightTableView];
+        [self.leftControl registerCell];
+        [self.rightControl registerCell];
     }
     return self;
 }
@@ -47,6 +49,13 @@
         make.top.and.right.and.bottom.equalTo(weakSelf);
     }];
     [super updateConstraints];
+}
+
+#pragma mark - Public methods
+- (void)loadData
+{
+    [self.leftControl loadData];
+    [self.rightControl loadData];
 }
 
 #pragma mark - getter & setter

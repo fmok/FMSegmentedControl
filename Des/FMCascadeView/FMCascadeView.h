@@ -13,4 +13,6 @@
 @property (nonatomic, strong) UITableView *leftTableView;
 @property (nonatomic, strong) UITableView *rightTableView;
 
+- (void)loadData;
+
 @end

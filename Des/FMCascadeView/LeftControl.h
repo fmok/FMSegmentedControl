@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "FMCascadeView.h"
+#import "LeftCell.h"
 
 @interface LeftControl : NSObject<
     UITableViewDelegate,
     UITableViewDataSource>
 
 @property (nonatomic, weak) FMCascadeView *cascadeView;
+
+- (void)registerCell;
+- (void)loadData;
 
 @end
