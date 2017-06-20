@@ -25,6 +25,7 @@
 		841EC8B91ECEC460005AA3BA /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 841EC8AF1ECEC460005AA3BA /* View+MASAdditions.m */; };
 		841EC8BD1ECEC5F6005AA3BA /* ViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 841EC8BC1ECEC5F6005AA3BA /* ViewControl.m */; };
 		841EC8C01ECED830005AA3BA /* FMSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 841EC8BF1ECED830005AA3BA /* FMSegmentControl.m */; };
+		8425AA7B1EF8C01B00732B18 /* FMCascadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8425AA7A1EF8C01B00732B18 /* FMCascadeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,8 @@
 		841EC8BC1ECEC5F6005AA3BA /* ViewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControl.m; sourceTree = "<group>"; };
 		841EC8BE1ECED830005AA3BA /* FMSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSegmentControl.h; sourceTree = "<group>"; };
 		841EC8BF1ECED830005AA3BA /* FMSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSegmentControl.m; sourceTree = "<group>"; };
+		8425AA791EF8C01B00732B18 /* FMCascadeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCascadeView.h; sourceTree = "<group>"; };
+		8425AA7A1EF8C01B00732B18 /* FMCascadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCascadeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 		841EC8901ECEC41B005AA3BA /* Des */ = {
 			isa = PBXGroup;
 			children = (
+				8425AA781EF8C01B00732B18 /* FMCascadeView */,
 				841EC8991ECEC460005AA3BA /* Masonry */,
 				841EC8911ECEC41B005AA3BA /* SegmentControl */,
 				841EC8941ECEC41B005AA3BA /* SwipeView */,
@@ -181,6 +185,15 @@
 				841EC8B01ECEC460005AA3BA /* View+MASShorthandAdditions.h */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		8425AA781EF8C01B00732B18 /* FMCascadeView */ = {
+			isa = PBXGroup;
+			children = (
+				8425AA791EF8C01B00732B18 /* FMCascadeView.h */,
+				8425AA7A1EF8C01B00732B18 /* FMCascadeView.m */,
+			);
+			path = FMCascadeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +280,7 @@
 				841EC8B31ECEC460005AA3BA /* MASConstraintMaker.m in Sources */,
 				841EC8B71ECEC460005AA3BA /* NSArray+MASAdditions.m in Sources */,
 				841EC8B21ECEC460005AA3BA /* MASConstraint.m in Sources */,
+				8425AA7B1EF8C01B00732B18 /* FMCascadeView.m in Sources */,
 				841EC8BD1ECEC5F6005AA3BA /* ViewControl.m in Sources */,
 				841EC8B41ECEC460005AA3BA /* MASLayoutConstraint.m in Sources */,
 				841EC8981ECEC41B005AA3BA /* SwipeView.m in Sources */,
@@ -393,6 +407,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = FMSegmentControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiemian.FMSegmentControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -407,6 +422,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = FMSegmentControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiemian.FMSegmentControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,6 +448,7 @@
 				841EC88B1ECE9025005AA3BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
