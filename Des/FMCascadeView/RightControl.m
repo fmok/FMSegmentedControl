@@ -15,23 +15,31 @@ NSString *const RightCellIdentifier = @"RightCell";
 #pragma mark - Public methods
 - (void)registerCell
 {
-    [self.cascadeView.rightTableView registerClass:[RightCell class] forCellReuseIdentifier:RightCellIdentifier];
+    if (self.cascadeView.delegate && [self.cascadeView.delegate respondsToSelector:@selector(registerRightCell:identifier:)]) {
+        [self.cascadeView.delegate registerRightCell:self.cascadeView.rightTableView identifier:RightCellIdentifier];
+    }
 }
 
 - (void)loadData
 {
-    
+    [self.cascadeView.rightTableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80.f;
+    if (self.cascadeView.delegate && [self.cascadeView.delegate respondsToSelector:@selector(fm_right_tableView:heightForRowAtIndexPath:)]) {
+        return [self.cascadeView.delegate fm_right_tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 40.f;
+    if (self.cascadeView.delegate && [self.cascadeView.delegate respondsToSelector:@selector(fm_right_tableView:heightForHeaderInSection:)]) {
+        return [self.cascadeView.delegate fm_right_tableView:tableView heightForHeaderInSection:section];
+    }
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -42,30 +50,42 @@ NSString *const RightCellIdentifier = @"RightCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"did selected at : %@ - %@", @(indexPath.section), @(indexPath.row));
+    if (self.cascadeView.delegate && [self.cascadeView.delegate respondsToSelector:@selector(fm_right_tableView:didSelectRowAtIndexPath:)]) {
+        [self.cascadeView.delegate fm_right_tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    if (self.cascadeView.dataSource && [self.cascadeView.dataSource respondsToSelector:@selector(fm_right_tableView:numberOfRowsInSection:)]) {
+        return [self.cascadeView.dataSource fm_right_tableView:tableView numberOfRowsInSection:section];
+    }
+    return CGFLOAT_MIN;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RightCell *cell = [tableView dequeueReusableCellWithIdentifier:RightCellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"*** %@ ***", @(indexPath.row)];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    if (self.cascadeView.dataSource && [self.cascadeView.dataSource respondsToSelector:@selector(fm_right_tableView:cellForRowAtIndexPath:identifier:)]) {
+        return [self.cascadeView.dataSource fm_right_tableView:tableView cellForRowAtIndexPath:indexPath identifier:RightCellIdentifier];
+    }
+    return nil;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
+    if (self.cascadeView.dataSource && [self.cascadeView.dataSource respondsToSelector:@selector(fm_right_numberOfSectionsInTableView:)]) {
+        return [self.cascadeView.dataSource fm_right_numberOfSectionsInTableView:tableView];
+    }
+    return CGFLOAT_MIN;
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [NSString stringWithFormat:@"& sec %@ &", @(section)];
+    if (self.cascadeView.dataSource && [self.cascadeView.dataSource respondsToSelector:@selector(fm_right_tableView:titleForHeaderInSection:)]) {
+        return [self.cascadeView.dataSource fm_right_tableView:tableView titleForHeaderInSection:section];
+    }
+    return @"";
 }
 
 

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "FMCascadeView.h"
 
+#define SECTION_COUNT 10
+
 @interface ViewController : UIViewController
 
 @property (nonatomic, strong) FMSegmentControl *segmentControl;

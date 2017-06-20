@@ -12,6 +12,8 @@
 
 @interface FMCascadeView()
 
+@property (nonatomic, strong, readwrite) UITableView *_Nullable leftTableView;
+@property (nonatomic, strong, readwrite) UITableView *_Nullable rightTableView;
 @property (nonatomic, strong) LeftControl *leftControl;
 @property (nonatomic, strong) RightControl *rightControl;
 
@@ -25,8 +27,6 @@
     if (self) {
         [self addSubview:self.leftTableView];
         [self addSubview:self.rightTableView];
-        [self.leftControl registerCell];
-        [self.rightControl registerCell];
     }
     return self;
 }
@@ -52,10 +52,26 @@
 }
 
 #pragma mark - Public methods
+- (void)configuration
+{
+    [self.leftControl registerCell];
+    [self.rightControl registerCell];
+}
+
 - (void)loadData
 {
     [self.leftControl loadData];
     [self.rightControl loadData];
+}
+
+- (BOOL)isRightListIsDragging
+{
+    return self.rightTableView.isDragging;
+}
+
+- (BOOL)isRightListIsDecelerating
+{
+    return self.rightTableView.isDecelerating;
 }
 
 #pragma mark - getter & setter

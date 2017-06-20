@@ -107,6 +107,9 @@
     if (!_cascadeView) {
         _cascadeView = [[FMCascadeView alloc] initWithFrame:CGRectZero];
         _cascadeView.backgroundColor = [UIColor yellowColor];
+        _cascadeView.delegate = self.control;
+        _cascadeView.dataSource = self.control;
+        [_cascadeView configuration];
     }
     return _cascadeView;
 }

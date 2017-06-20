@@ -9,7 +9,7 @@
 #import "FMSegmentControl.h"
 
 #define kFontTitleLabel [UIFont systemFontOfSize:14.0]
-#define kFontColorTitleNormal [UIColor blueColor]
+#define kFontColorTitleNormal [UIColor lightGrayColor]
 #define kFontColorTitleSelected [UIColor whiteColor]
 
 @interface FMMaskView : UIView

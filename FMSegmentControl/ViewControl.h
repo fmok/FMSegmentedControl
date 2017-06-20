@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "ViewController.h"
+#import "LeftCell.h"
+#import "RightCell.h"
 
 @interface ViewControl : NSObject<
     FMSegmentControlDelegate,
     SwipeViewDelegate,
-    SwipeViewDataSource>
+    SwipeViewDataSource,
+    FMCascadeViewDelegate,
+    FMCascadeViewDataSource>
 
 @property (nonatomic, weak) ViewController *vc;
 

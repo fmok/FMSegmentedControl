@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "FMCascadeView.h"
-#import "RightCell.h"
 
 @interface RightControl : NSObject<
     UITableViewDelegate,
