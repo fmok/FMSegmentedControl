@@ -32,7 +32,6 @@
 - (void)customNav
 {
     self.navigationItem.titleView = self.segmentControl;
-    self.segmentControl.items = @[@"呵呵", @"哈哈", @"嘿嘿"];
 }
 
 - (void)customSwipe
@@ -78,7 +77,16 @@
 - (FMSegmentControl *)segmentControl
 {
     if (!_segmentControl) {
-        _segmentControl = [[FMSegmentControl alloc] initWithFrame:CGRectMake(0, 0, 240, 30)];
+        _segmentControl = [[FMSegmentControl alloc] initWithFrame:CGRectMake(0, 0, 240, 30) items:@[@"呵呵", @"哈哈", @"嘿嘿"] configureDic:@{
+                                                                                                                                        kSegmentControlTitleColorNormal:[UIColor redColor],
+                                                                                                                                        kSegmentControlTitleColorSelected:[UIColor whiteColor],
+                                                                                                                                        kSegmentControlTitleFont:[UIFont systemFontOfSize:14.f],
+                                                                                                                                        kSegmentControlSegBgColorNormal:[UIColor whiteColor],
+                                                                                                                                        kSegmentControlSegBgColorSelected:[UIColor redColor],
+                                                                                                                                        kSegmentControlBorderColor:[UIColor redColor],
+                                                                                                                                        kSegmentControlBorderWidth:@(1.f),
+                                                                                                                                        kSegmentControlCornerRadius:@(15.f)
+                                                                                                                                        } currentIndex:0];
         _segmentControl.delegate = self.control;
     }
     return _segmentControl;

@@ -33,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		573F2E78206E113F0011C77A /* FMColorMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMColorMacro.h; sourceTree = "<group>"; };
 		841EC8721ECE9024005AA3BA /* FMSegmentControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMSegmentControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841EC8761ECE9025005AA3BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		841EC8781ECE9025005AA3BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		841EC8741ECE9024005AA3BA /* FMSegmentControl */ = {
 			isa = PBXGroup;
 			children = (
+				573F2E78206E113F0011C77A /* FMColorMacro.h */,
 				8425AA9B1EF925C500732B18 /* LeftCell.h */,
 				8425AA9C1EF925C500732B18 /* LeftCell.m */,
 				8425AA9D1EF925C500732B18 /* RightCell.h */,

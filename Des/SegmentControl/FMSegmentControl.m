@@ -1,41 +1,39 @@
 //
 //  FMSegmentControl.m
-//  FMSegmentControl
+//  Sample
 //
-//  Created by fm on 2017/5/19.
-//  Copyright © 2017年 wangjiuyin. All rights reserved.
+//  Created by wjy on 2018/3/28.
+//  Copyright © 2018年 wjy. All rights reserved.
 //
 
 #import "FMSegmentControl.h"
 
-#define kFontTitleLabel [UIFont systemFontOfSize:14.0]
-#define kFontColorTitleNormal [UIColor lightGrayColor]
-#define kFontColorTitleSelected [UIColor whiteColor]
-
 @interface FMMaskView : UIView
 
 @property (nonatomic, strong) CAShapeLayer *maskView;
+
 @end
 
 @implementation FMMaskView
 
-- (CAShapeLayer *)maskView
-{
+- (CAShapeLayer *)maskView {
     if (!_maskView) {
         _maskView = [[CAShapeLayer alloc] init];
     }
     return _maskView;
 }
 
-- (void)setFrame:(CGRect)frame
-{
+- (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     self.maskView.path = [UIBezierPath bezierPathWithRect:frame].CGPath;
 }
+
 @end
 
-@interface FMSegmentControl()
+@interface FMSegmentControl ()
 
+@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) FMMaskView *indicatorView;
 @property (nonatomic, strong) UIView *titleLabelsView;
 @property (nonatomic, strong) UIView *selectedTitlesLabelView;
@@ -47,32 +45,18 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (instancetype)initWithItems:(NSArray *)items
-{
-    self = [super init];
-    if (self) {
-        self.items = items;
-    }
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items configureDic:(NSDictionary *)configureDic currentIndex:(NSInteger)currentIndex
 {
     self = [super initWithFrame:frame];
     if (self) {
+        if (configureDic) {
+            [self.configureDic setValuesForKeysWithDictionary:configureDic];
+        }
         [self setUp];
-    }
-    return self;
-}
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self setUp];
+        self.items = items;
+        self.currentIndex = currentIndex;
     }
     return self;
 }
@@ -81,9 +65,6 @@
 {
     [super layoutSubviews];
     
-    self.layer.cornerRadius = self.bounds.size.height * 0.5;
-    self.layer.borderWidth = 1;
-    self.layer.borderColor = kFontColorTitleNormal.CGColor;
     _titleLabelsView.frame = self.bounds;
     _selectedTitlesLabelView.frame = self.bounds;
     
@@ -95,10 +76,10 @@
     }
     
     _indicatorView.frame = [self elementFrameAtIndex:self.currentIndex];
-    _indicatorView.layer.cornerRadius = self.bounds.size.height * 0.5;
+    _indicatorView.layer.cornerRadius = [[self.configureDic objectForKey:kSegmentControlCornerRadius] floatValue];
 }
 
-#pragma mark - Publice methods
+#pragma mark - Publice Method
 - (void)scrollToIndex:(NSInteger)index
 {
     if (self.currentIndex == index) {
@@ -115,6 +96,10 @@
 #pragma mark - Private methods
 - (void)setUp
 {
+    self.backgroundColor = [self.configureDic objectForKey:kSegmentControlSegBgColorNormal];
+    self.layer.cornerRadius = [[self.configureDic objectForKey:kSegmentControlCornerRadius] floatValue];
+    self.layer.borderWidth = [[self.configureDic objectForKey:kSegmentControlBorderWidth] floatValue];
+    self.layer.borderColor = ((UIColor *)[self.configureDic objectForKey:kSegmentControlBorderColor]).CGColor;
     self.layer.masksToBounds = YES;
     
     [self addSubview:self.titleLabelsView];
@@ -122,12 +107,9 @@
     
     [self addSubview:self.selectedTitlesLabelView];
     _selectedTitlesLabelView.layer.mask = self.indicatorView.maskView;
-    
+    //
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self addGestureRecognizer:tapGR];
-    
-    UIPanGestureRecognizer *panGR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
-    [self addGestureRecognizer:panGR];
 }
 
 - (void)addLabels
@@ -135,18 +117,19 @@
     for (int i = 0; i < self.items.count; i ++) {
         UILabel *titleLabel = [[UILabel alloc] init];
         titleLabel.text = self.items[i];
-        titleLabel.font = kFontTitleLabel;
-        titleLabel.textColor = kFontColorTitleNormal;
+        titleLabel.font = [self.configureDic objectForKey:kSegmentControlTitleFont];
+        titleLabel.textColor = [self.configureDic objectForKey:kSegmentControlTitleColorNormal];
         titleLabel.textAlignment = NSTextAlignmentCenter;
         [_titleLabelsView addSubview:titleLabel];
         
         UILabel *selectedTitleLabel = [[UILabel alloc] init];
         selectedTitleLabel.text = self.items[i];
-        selectedTitleLabel.font = kFontTitleLabel;
-        selectedTitleLabel.textColor = kFontColorTitleSelected;
+        selectedTitleLabel.font = [self.configureDic objectForKey:kSegmentControlTitleFont];
+        selectedTitleLabel.textColor = [self.configureDic objectForKey:kSegmentControlTitleColorSelected];
         selectedTitleLabel.textAlignment = NSTextAlignmentCenter;
         [_selectedTitlesLabelView addSubview:selectedTitleLabel];
     }
+    
     [self setNeedsLayout];
 }
 
@@ -175,6 +158,7 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(segmentedControl:didSeletedItemAtIndex:)]) {
         [self.delegate segmentedControl:self didSeletedItemAtIndex:index];
     }
+    
     [self moveIndicatorView];
 }
 
@@ -201,12 +185,7 @@
     [self moveIndicatorViewToIndex:index];
 }
 
-- (void)handlePan:(UIPanGestureRecognizer *)gestureRecognizer
-{
-    
-}
-
-#pragma mark - getter & setter
+#pragma mark - Getter & Setter
 - (CGRect)firstItemFrame
 {
     return [self.titleLabels[0] frame];
@@ -249,12 +228,28 @@
 {
     if (!_indicatorView) {
         _indicatorView = [[FMMaskView alloc] init];
-        _indicatorView.backgroundColor = kFontColorTitleNormal;
+        _indicatorView.backgroundColor = [self.configureDic objectForKey:kSegmentControlSegBgColorSelected];
         _indicatorView.layer.masksToBounds = YES;
     }
     return _indicatorView;
 }
 
+- (NSMutableDictionary *)configureDic
+{
+    if (!_configureDic) {
+        _configureDic = [[NSMutableDictionary alloc] initWithDictionary:@{
+                                                                          kSegmentControlTitleColorNormal:[UIColor whiteColor],
+                                                                          kSegmentControlTitleColorSelected:[UIColor whiteColor],
+                                                                          kSegmentControlTitleFont:[UIFont systemFontOfSize:14.f],
+                                                                          kSegmentControlSegBgColorNormal:SRGBCOLOR_HEX(0x6075FB),
+                                                                          kSegmentControlSegBgColorSelected:SRGBCOLOR_HEX(0xBED2EF),
+                                                                          kSegmentControlBorderColor:[UIColor clearColor],
+                                                                          kSegmentControlBorderWidth:@(0.f),
+                                                                          kSegmentControlCornerRadius:@(0.f)
+                                                                          }];
+    }
+    return _configureDic;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
