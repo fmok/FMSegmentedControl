@@ -13,6 +13,7 @@
 #import "FMSegmentControl.h"
 #import "SwipeView.h"
 #import "FMColorMacro.h"
+#import "FMSizeNumMacro.h"
 
 #define WS(weakSelf) __weak __typeof(self) weakSelf = self
 #define W_Screen [UIScreen mainScreen].bounds.size.width
